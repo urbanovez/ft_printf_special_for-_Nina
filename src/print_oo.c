@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int		print_oo(t_dose *dose, va_list arg, int count)
+int		print_oo(int count)
 {
 	char *l;
 

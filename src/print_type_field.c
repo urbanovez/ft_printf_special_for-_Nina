@@ -33,7 +33,7 @@ char	*ft_use_precision(char *num, int precision, int period)
 	return (num2);
 }
 
-int		p(char *num, int l, char s, int order)
+int		p(char *num, int l, int order)
 {
 	int count;
 
@@ -62,7 +62,7 @@ int		print_s(t_dose *dose, va_list arg, int c)
 	if (num == NULL)
 	{
 		if (dose->precision < 6 && dose->period == 1)
-			return (c + p("", dose->width, ' ', 1));
+			return (c + p("", dose->width, 1));
 		num = malloc(sizeof(char) * 7);
 		num = ft_strcpy(num, "(null)");
 	}
@@ -70,8 +70,8 @@ int		print_s(t_dose *dose, va_list arg, int c)
 	num = ft_use_precision(num, dose->precision, dose->period);
 	if (dose->width - (int)ft_strlen(num) > 0)
 		c = (dose->minus == 1) ? c + p(num, (dose->width -
-		(int)ft_strlen(num)), ' ', 0) : c +
-		p(num, (dose->width - (int)ft_strlen(num)), ' ', 1);
+		(int)ft_strlen(num)), 0) : c +
+		p(num, (dose->width - (int)ft_strlen(num)), 1);
 	else
 		ft_putstr(num);
 	c = c + ft_strlen(num);

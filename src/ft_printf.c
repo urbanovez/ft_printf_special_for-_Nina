@@ -32,7 +32,7 @@ int	ft_print_types(t_dose *dose, va_list arg, int count)
 	else if (dose->format_conversion == 'p')
 		count = print_p(dose, arg, count);
 	else if (dose->format_conversion == '%')
-		count = print_oo(dose, arg, count);
+		count = print_oo(count);
 	return (count);
 }
 
